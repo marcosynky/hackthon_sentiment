@@ -53,6 +53,31 @@ Este projeto foi desenvolvido por **Marco Antônio** para demonstrar como integr
 - **Exclusão de Previsões**: Exclusão de uma previsão de sentimento com base no **ID**.
 - **Previsão Padrão**: Caso o microserviço Python falhe ou não retorne uma previsão válida, o sistema retorna uma previsão padrão.
 
+
+
+### Explicação do Diagrama Mermaid:
+
+- **Usuário Envia Texto**: O usuário envia um texto para a API.
+- **API Spring Boot**: A API recebe a requisição via **POST** e a envia para o microserviço Python.
+- **Microserviço Python**: O microserviço Python realiza a análise de sentimento e retorna a previsão.
+- **Resposta da API**: A previsão de sentimento é retornada ao usuário via API.
+- **Opções de Ações**: O usuário pode optar por atualizar ou excluir a previsão de sentimento.
+
+ ```mermaid
+graph LR
+    A[Usuário Envia Texto] --> B{API Spring Boot}
+    B --> C[Requisição POST para Python]
+    C --> D[Microserviço Python]
+    D --> E[Retorno da Previsão de Sentimento]
+    E --> F[Resposta da API com Previsão]
+    F --> G[Usuário Recebe Previsão]
+    G --> H{Usuário Opções}
+    H -->|Atualizar| I[PUT Atualiza Sentimento]
+    H -->|Excluir| J[DELETE Exclui Sentimento]
+```
+
+
+
 ## 🛠️ Como Rodar o Projeto
 
 ### Pré-requisitos
